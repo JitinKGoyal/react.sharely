@@ -1,11 +1,10 @@
 import React from 'react'
-import {CirclesWithBar} from "react-loader-spinner";
+import { CirclesWithBar } from "react-loader-spinner";
 
-function Spinner({message}) {
+function Spinner({ message }) {
     return (
         <div className='flex flex-col justify-center items-center w-full h-full'>
             <CirclesWithBar
-               
                 color='#00BFFF'
                 height={50}
                 width={200}
