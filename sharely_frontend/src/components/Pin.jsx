@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { client, urlFor } from '../client'
-<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom";
-=======
-import { Link, Navigate, useNavigate } from "react-router-dom";
->>>>>>> c593d6dd7df9ff91b982becc2932e94ca76b1c06
 import { v4 as uuidv4 } from "uuid";
 import { MdDownloadForOffline } from "react-icons/md";
 import { AiTwotoneDelete } from "react-icons/ai";
@@ -14,20 +10,12 @@ import { fetchUser } from '../utils/fetchUser';
 
 function Pin({ pin: { postedBy, image, _id, destination, save } }) {
   const [postHovered, setPostHovered] = useState(false)
-<<<<<<< HEAD
-=======
-  const [savingPost, setSavingPost] = useState(false)
->>>>>>> c593d6dd7df9ff91b982becc2932e94ca76b1c06
   const navigate = useNavigate();
   const user = fetchUser();
 
   const alreadySaved = !!(save?.filter((item) => item.postedBy._id === user.googleId))?.length;
   const savePin = (id) => {
     if (!alreadySaved) {
-<<<<<<< HEAD
-=======
-      setSavingPost(true);
->>>>>>> c593d6dd7df9ff91b982becc2932e94ca76b1c06
       client
         .patch(id)
         .setIfMissing({ save: [] })
@@ -42,15 +30,10 @@ function Pin({ pin: { postedBy, image, _id, destination, save } }) {
         .commit()
         .then(() => {
           window.location.reload();
-<<<<<<< HEAD
-=======
-          setSavingPost(false);
->>>>>>> c593d6dd7df9ff91b982becc2932e94ca76b1c06
         })
     }
 
   }
-<<<<<<< HEAD
 
 
   const deletePin = (id) => {
@@ -60,8 +43,6 @@ function Pin({ pin: { postedBy, image, _id, destination, save } }) {
         window.location.reload();
       })
   }
-=======
->>>>>>> c593d6dd7df9ff91b982becc2932e94ca76b1c06
 
   return (
     <div className='m-2'>
@@ -81,27 +62,19 @@ function Pin({ pin: { postedBy, image, _id, destination, save } }) {
                 <a
                   href={`${image?.asset?.url}?dl=`}
                   download
-<<<<<<< HEAD
                   onClick={((e) => e.stopPropagation())}
-=======
-                  onClick={(e => e.stopPropagation())}
->>>>>>> c593d6dd7df9ff91b982becc2932e94ca76b1c06
                   className='bg-white w-9 h-9 rounded-full flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 hover:shadow-md outline-none'
                 >
                   <MdDownloadForOffline />
                 </a>
               </div>
               {alreadySaved ? (
-<<<<<<< HEAD
                 <button
                   type='button'
                   className='bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none '
                   onClick={((e) => e.stopPropagation())}
 
                 >
-=======
-                <button type='button' className='bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none '>
->>>>>>> c593d6dd7df9ff91b982becc2932e94ca76b1c06
                   {save?.length} Saved
                 </button>
               ) : (
@@ -115,7 +88,6 @@ function Pin({ pin: { postedBy, image, _id, destination, save } }) {
                   Save
                 </button>
               )}
-<<<<<<< HEAD
             </div>
             <div className='flex justify-between items-center gap-2 w-full'>
               {destination && (
@@ -146,8 +118,6 @@ function Pin({ pin: { postedBy, image, _id, destination, save } }) {
                   <AiTwotoneDelete />
                 </button>
               )}
-=======
->>>>>>> c593d6dd7df9ff91b982becc2932e94ca76b1c06
 
             </div>
           </div>
@@ -156,7 +126,6 @@ function Pin({ pin: { postedBy, image, _id, destination, save } }) {
 
         }
       </div>
-<<<<<<< HEAD
       <Link
         to={`user-profile/${postedBy?._id}`}
         className='flex gap-2 mt-2 items-center '
@@ -168,8 +137,6 @@ function Pin({ pin: { postedBy, image, _id, destination, save } }) {
         />
         <p className='font-semibold capitalize'> {postedBy?.userName}</p>
       </Link>
-=======
->>>>>>> c593d6dd7df9ff91b982becc2932e94ca76b1c06
     </div>
   )
 }
