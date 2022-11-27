@@ -32,6 +32,8 @@ function Feed() {
 
 
   if (loading) return <Spinner message='...' />
+  if (!pins?.length) return <h2>No Pins Availale!</h2>
+
 
   return (
     <div>

@@ -98,7 +98,7 @@ export const categories = [
         },
       },
       comments[]{
-        comment,
+        comments,
         _key,
         postedBy->{
           _id,
